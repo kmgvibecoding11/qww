@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Арден — бутик мужской классической одежды</title>
+<meta name="description" content="Персональная примерка костюмов, рубашек и обуви. Стилист, подборка под размер и повод, подгонка портным без спешки. Запишитесь на визит.">
+<meta property="og:title" content="Арден — бутик мужской классической одежды">
+<meta property="og:description" content="Персональная примерка, подборка под размер и повод, подгонка портным.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#0F3033">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ClothingStore",
+  "name": "Арден",
+  "description": "Бутик мужской классической одежды",
+  "address": { "@type": "PostalAddress", "streetAddress": "[адрес]", "addressLocality": "[город]", "addressCountry": "RU" },
+  "openingHours": "[часы работы]",
+  "telephone": "[телефон]"
+}
+</script>
+<style>
+:root{
+  --bg:#0F3033; --bg-alt:#13383B; --bg-book:#0B2527;
+  --plate-a:#184245; --plate-b:#1A474A;
+  --line:#2C5558; --line-2:#3C6567;
+  --title:#F3ECE2; --text:#ECE4D9; --text-2:#D2DDD9; --muted:#A3BAB6;
+  --accent:#C9AE7E;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Manrope','Helvetica Neue',Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--serif);font-weight:500;color:var(--title);line-height:1.1}
+h1{font-size:clamp(48px,7.5vw,100px);letter-spacing:-.01em}
+h2{font-size:clamp(42px,5vw,64px);margin-bottom:24px}
+h3{font-size:28px;font-weight:500}
+p{max-width:64ch}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 clamp(20px,4vw,48px)}
+section{padding:clamp(72px,10vw,140px) 0}
+section.alt{background:var(--bg-alt)}
+.eyebrow{font-size:13px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:block}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border:1px solid var(--accent);font:600 15px/1 var(--sans);letter-spacing:.03em;text-decoration:none;cursor:pointer;transition:background .2s,color .2s;background:none;color:var(--accent)}
+.btn:hover{background:var(--accent);color:var(--bg-book)}
+.btn.solid{background:var(--accent);color:var(--bg-book)}
+.btn.solid:hover{background:var(--title);border-color:var(--title)}
+.link{display:inline-flex;align-items:center;min-height:48px;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--line-2);font-weight:500}
+.link:hover{color:var(--title);border-color:var(--accent)}
+
+/* header */
+header{position:sticky;top:0;z-index:10;background:rgba(15,48,51,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.logo{font-family:var(--serif);font-size:30px;color:var(--title);text-decoration:none;letter-spacing:.02em}
+nav{display:flex;gap:4px 28px;flex-wrap:wrap}
+nav a{display:inline-flex;align-items:center;min-height:44px;text-decoration:none;font-size:15px;font-weight:500;color:var(--text-2)}
+nav a:hover{color:var(--accent)}
+header .btn{min-height:44px;padding:0 20px;font-size:14px}
+
+/* photo plates */
+.plate{position:relative;background:repeating-linear-gradient(90deg,var(--plate-a) 0 2px,var(--plate-b) 2px 5px);border:1px solid var(--line);display:flex;align-items:flex-end;overflow:hidden}
+.plate::after{content:"";position:absolute;inset:14px;border:1px solid var(--line-2);pointer-events:none}
+.plate span{position:relative;z-index:1;padding:28px;font-size:13px;line-height:1.5;color:var(--muted);max-width:30ch}
+.photo{position:relative;overflow:hidden;border:1px solid var(--line);background:var(--plate-a)}
+.photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.88) contrast(1.03)}
+.photo::after{content:"";position:absolute;inset:0;background:rgba(15,48,51,.28);mix-blend-mode:multiply;pointer-events:none}
+.r45{aspect-ratio:4/5}.r34{aspect-ratio:3/4}.r11{aspect-ratio:1/1}
+
+/* hero */
+.hero{padding-top:clamp(48px,7vw,96px)}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,6vw,96px);align-items:center}
+.hero p.lead{font-size:19px;color:var(--text-2);margin:32px 0 40px}
+.actions{display:flex;gap:12px 32px;flex-wrap:wrap;align-items:center}
+
+/* two-column sections */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.split p{color:var(--text-2);margin-bottom:20px}
+.prices{list-style:none;margin:36px 0 40px;border-top:1px solid var(--line)}
+.prices li{display:flex;justify-content:space-between;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);color:var(--text)}
+.prices li b{font-weight:500;color:var(--accent);white-space:nowrap}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.gallery .photo:first-child{grid-row:span 2}
+.gallery .photo:not(:first-child){aspect-ratio:4/3}
+.tags{list-style:none;display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}
+.tags li{padding:8px 18px;border:1px solid var(--line-2);font-size:15px;color:var(--text-2)}
+.from{color:var(--muted);margin-bottom:36px}
+.shirts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.shirts .photo:last-child{margin-top:56px}
+
+/* shoes */
+.shoes{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,3vw,40px);margin:56px 0 48px}
+.shoe h3{margin-top:20px}
+.shoe p{color:var(--muted);font-size:16px;margin-top:4px}
+.head p{color:var(--text-2)}
+
+/* steps */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:56px;counter-reset:s}
+.steps li{border-top:1px solid var(--line-2);padding-top:28px;counter-increment:s}
+.steps li::before{content:"0" counter(s);font-family:var(--serif);font-size:56px;color:var(--accent);line-height:1;display:block;margin-bottom:20px}
+.steps h3{margin-bottom:12px}
+.steps p{color:var(--text-2);font-size:16px}
+
+/* booking */
+.book{background:var(--bg-book)}
+.contacts{list-style:none;margin:32px 0;border-top:1px solid var(--line)}
+.contacts li{padding:14px 0;border-bottom:1px solid var(--line);color:var(--text-2)}
+.contacts small{display:block;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+form{border:1px solid var(--line-2);padding:clamp(24px,4vw,44px)}
+form h3{font-size:34px;margin-bottom:24px}
+.field{margin-bottom:20px}
+label{display:block;font-size:14px;font-weight:600;color:var(--text-2);margin-bottom:8px}
+label i{color:var(--accent);font-style:normal}
+input,select{width:100%;min-height:48px;padding:0 14px;background:var(--bg);border:1px solid var(--line-2);color:var(--title);font:400 16px var(--sans);border-radius:0}
+input[type=checkbox]{width:20px;min-height:20px;height:20px;accent-color:var(--accent);flex:none;margin-top:3px}
+input[aria-invalid=true]{border-color:#E8A08F}
+.err{display:none;color:#F0B5A6;font-size:14px;margin-top:6px}
+input[aria-invalid=true]+.err{display:block}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;color:var(--text-2);margin:24px 0}
+.consent label{font-weight:400;margin:0;font-size:14px}
+.consent a{color:var(--accent)}
+form .btn{width:100%}
+.note{font-size:14px;color:var(--muted);margin-top:14px}
+.status{margin-top:16px;padding:14px 16px;border:1px solid var(--line-2);font-size:15px;display:none}
+.status.show{display:block}
+.status.ok{border-color:var(--accent);color:var(--title)}
+.status.bad{border-color:#E8A08F;color:#F0B5A6}
+.status a{color:inherit}
+
+footer{padding:48px 0;border-top:1px solid var(--line);background:var(--bg-book)}
+footer .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+footer p{color:var(--muted);font-size:15px}
+
+@media (max-width:900px){
+  .hero .wrap,.split{grid-template-columns:1fr}
+  .steps,.shoes{grid-template-columns:1fr}
+  .hero .photo{max-width:480px}
+  nav{order:3;width:100%}
+}
+@media (max-width:480px){
+  .gallery,.shirts{grid-template-columns:1fr}
+  .gallery .photo:first-child{grid-row:auto}
+  .shirts .photo:last-child{margin-top:0}
+  header .btn{width:100%}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Арден — на главную">Арден</a>
+    <nav aria-label="Основная навигация">
+      <a href="#suits">Костюмы</a>
+      <a href="#shirts">Рубашки</a>
+      <a href="#shoes">Обувь</a>
+      <a href="#visit">Визит в бутик</a>
+    </nav>
+    <a class="btn" href="#book" data-goal="cta-header">Записаться на примерку</a>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Костюм, в котором вы чувствуете себя собой</h1>
+      <p class="lead">Персональный подбор классического гардероба, безупречная посадка, примерка без спешки.</p>
+      <div class="actions">
+        <a class="btn solid" href="#book" data-goal="cta-hero">Записаться на примерку</a>
+        <a class="link" href="#suits">Смотреть коллекцию</a>
+      </div>
+    </div>
+    <div class="photo r45"><img src="img/hero.jpg" alt="Мужчина в синем костюме и белой рубашке" width="1200" height="1800" style="object-position:50% 18%" fetchpriority="high"></div>
+  </div>
+</section>
+
+<section id="suits" class="alt">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Костюмы</span>
+      <h2>Костюм под ваш повод</h2>
+      <p>Переговоры, свадьба, опера — у каждого случая своя посадка и своя ткань. Мы подбираем костюм под повод, учитывая модель, плотность ткани и вашу фигуру.</p>
+      <ul class="prices">
+        <li>Готовые костюмы с подгонкой <b>от [цена] ₽</b></li>
+        <li>Индивидуальный пошив <b>от [цена] ₽</b></li>
+        <li>Смокинги и вечерние костюмы <b>от [цена] ₽</b></li>
+      </ul>
+      <a class="btn" href="#book" data-goal="cta-suits">Подобрать костюм на примерке</a>
+    </div>
+    <div class="gallery">
+      <div class="photo r34"><img src="img/suit.jpg" alt="Мужчина в чёрном костюме" width="1200" height="1882" style="object-position:50% 20%" loading="lazy"></div>
+      <div class="photo"><img src="img/lapel.jpg" alt="Деталь лацкана пиджака" width="1200" height="801" style="object-position:60% 25%" loading="lazy"></div>
+      <div class="photo"><img src="img/fabric.jpg" alt="Костюмные ткани крупным планом" width="1200" height="1600" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="shirts">
+  <div class="wrap split">
+    <div class="shirts">
+      <div class="photo r34"><img src="img/shirt1.jpg" alt="Белая рубашка с воротником и манжетой" width="1200" height="960" loading="lazy"></div>
+      <div class="photo r34"><img src="img/shirt2.jpg" alt="Белая рубашка с галстуком" width="1200" height="1800" style="object-position:50% 60%" loading="lazy"></div>
+    </div>
+    <div>
+      <span class="eyebrow">Рубашки</span>
+      <h2>Рубашка, которая сидит как ваша</h2>
+      <p>Воротник, манжеты, плотность хлопка, длина рукава — мелочи, из которых складывается комфорт на весь день. Подберём и при необходимости сошьём по меркам.</p>
+      <ul class="tags">
+        <li>Деловые и вечерние</li>
+        <li>Пошив по меркам</li>
+        <li>Монограмма на манжете</li>
+        <li>Запонки и галстуки в тон</li>
+      </ul>
+      <p class="from">Стоимость от [цена] ₽</p>
+      <a class="btn" href="#book" data-goal="cta-shirts">Подобрать рубашки</a>
+    </div>
+  </div>
+</section>
+
+<section id="shoes" class="alt">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Обувь</span>
+      <h2>Обувь завершает образ</h2>
+      <p>Хорошая пара определяет, как вы выглядите и как себя чувствуете. В бутике вы сможете проверить посадку, пройтись и сравнить модели рядом с костюмом.</p>
+    </div>
+    <div class="shoes">
+      <article class="shoe">
+        <div class="photo r11"><img src="img/oxford.jpg" alt="Коричневые кожаные туфли на шнуровке" width="1200" height="800" loading="lazy"></div>
+        <h3>Оксфорды</h3><p>от [цена] ₽</p>
+      </article>
+      <article class="shoe">
+        <div class="photo r11"><img src="img/monk.jpg" alt="Коричневые кожаные монки с двумя пряжками" width="1200" height="1500" style="object-position:45% 60%" loading="lazy"></div>
+        <h3>Монки</h3><p>от [цена] ₽</p>
+      </article>
+      <article class="shoe">
+        <div class="photo r11"><img src="img/loafer.jpg" alt="Коричневые кожаные лоферы" width="1200" height="800" loading="lazy"></div>
+        <h3>Лоферы</h3><p>от [цена] ₽</p>
+      </article>
+    </div>
+    <a class="btn" href="#book" data-goal="cta-shoes">Примерить обувь в бутике</a>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <span class="eyebrow">Визит</span>
+    <h2>Как проходит ваш визит</h2>
+    <ol class="steps">
+      <li><h3>Вы выбираете время</h3><p>За вами закрепляется стилист, который будет рядом на всех этапах.</p></li>
+      <li><h3>Стилист готовит подборку</h3><p>К вашему приходу всё готово: вещи подобраны под размер и повод.</p></li>
+      <li><h3>Примерка и подгонка</h3><p>Портной подгоняет вещи по фигуре. Готовое доставим домой или в офис.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="book" class="book">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Запись</span>
+      <h2>Ждём вас в бутике</h2>
+      <p>Приходите в удобное время — мы подготовимся к вашему визиту и не будем спешить.</p>
+      <ul class="contacts">
+        <li><small>Адрес</small>[адрес бутика]</li>
+        <li><small>Часы работы</small>[часы работы]</li>
+        <li><small>Телефон</small>[телефон]</li>
+      </ul>
+      <div class="actions">
+        <a class="btn" href="tel:+70000000000" data-goal="call">Позвонить</a>
+        <a class="btn" href="https://wa.me/70000000000" target="_blank" rel="noopener" data-goal="whatsapp">Написать в WhatsApp</a>
+      </div>
+    </div>
+
+    <form id="bookingForm" novalidate>
+      <h3>Запись на примерку</h3>
+      <div class="field">
+        <label for="name">Как к вам обращаться <i aria-hidden="true">*</i></label>
+        <input id="name" name="name" type="text" autocomplete="given-name" required aria-describedby="nameErr">
+        <p class="err" id="nameErr">Укажите, как к вам обращаться</p>
+      </div>
+      <div class="field">
+        <label for="phone">Телефон <i aria-hidden="true">*</i></label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 900 000-00-00" required aria-describedby="phoneErr">
+        <p class="err" id="phoneErr">Проверьте номер телефона</p>
+      </div>
+      <div class="field">
+        <label for="date">Удобная дата</label>
+        <input id="date" name="date" type="date">
+      </div>
+      <div class="field">
+        <label for="topic">Что вас интересует</label>
+        <select id="topic" name="topic">
+          <option value="">Выберите</option>
+          <option>Костюм</option>
+          <option>Рубашки</option>
+          <option>Обувь</option>
+          <option>Полный образ</option>
+        </select>
+      </div>
+      <div class="consent">
+        <input id="consent" name="consent" type="checkbox" required aria-describedby="consentErr">
+        <label for="consent">Согласен(на) на обработку персональных данных и с <a href="#privacy">политикой конфиденциальности</a></label>
+      </div>
+      <p class="err" id="consentErr" style="margin:-12px 0 16px">Нужно согласие на обработку данных</p>
+      <button class="btn solid" type="submit" id="submitBtn">Записаться на примерку</button>
+      <p class="note">Перезвоним в течение [часа], чтобы подтвердить время</p>
+      <div class="status" id="status" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">Арден</a>
+    <p>Бутик мужской классической одежды · Фото: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+  </div>
+</footer>
+
+<script>
+// Адрес приёма заявок (почта, CRM или мессенджер — решает заказчик).
+// Пока не задан, форма честно сообщает об ошибке и не показывает «Заявка отправлена».
+const FORM_ENDPOINT = '';
+const PHONE_FALLBACK = '+70000000000';
+
+const form = document.getElementById('bookingForm');
+const statusEl = document.getElementById('status');
+const consent = document.getElementById('consent');
+const consentErr = document.getElementById('consentErr');
+
+function track(goal){
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({event:'goal', goal});
+}
+document.querySelectorAll('[data-goal]').forEach(el =>
+  el.addEventListener('click', () => track(el.dataset.goal)));
+
+function setInvalid(el, bad){ el.setAttribute('aria-invalid', bad ? 'true' : 'false'); }
+function showStatus(kind, html){
+  statusEl.className = 'status show ' + kind;
+  statusEl.innerHTML = html;
+}
+
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  const name = form.name, phone = form.phone;
+  const nameBad = !name.value.trim();
+  const phoneBad = !/^\+?[\d\s()\-]{10,18}$/.test(phone.value.trim()) || phone.value.replace(/\D/g,'').length < 10;
+  const consentBad = !consent.checked;
+  setInvalid(name, nameBad); setInvalid(phone, phoneBad);
+  consentErr.style.display = consentBad ? 'block' : 'none';
+  if (nameBad || phoneBad || consentBad){
+    (nameBad ? name : phoneBad ? phone : consent).focus();
+    return;
+  }
+  const btn = document.getElementById('submitBtn');
+  btn.disabled = true;
+  try{
+    if (!FORM_ENDPOINT) throw new Error('endpoint not configured');
+    const res = await fetch(FORM_ENDPOINT, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({
+        name: name.value.trim(), phone: phone.value.trim(),
+        date: form.date.value, topic: form.topic.value
+      })
+    });
+    if (!res.ok) throw new Error('http ' + res.status);
+    showStatus('ok', 'Заявка отправлена. Мы скоро перезвоним.');
+    track('form-submit');
+    form.reset();
+  }catch(err){
+    showStatus('bad', 'Не удалось отправить заявку. Позвоните нам: <a href="tel:' + PHONE_FALLBACK + '">позвонить</a>.');
+  }finally{
+    btn.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
